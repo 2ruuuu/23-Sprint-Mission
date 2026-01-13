@@ -16,6 +16,54 @@
   box-sizing: border-box;
 }
 
+html {
+  --8px: 0.5rem;
+  --10px: 0.625rem;
+  --12px: 0.75rem;
+  --14px: 0.875rem;
+  --15px: 0.9375rem;
+  --16px: 1rem;
+  --17px: 1.0625rem;
+  --18px: 1.125rem;
+  --19px: 1.1875rem;
+  --20px: 1.25rem;
+  --21px: 1.3125rem;
+  --23px: 1.438rem;
+  --24px: 1.5rem;
+  --25px: 1.563rem;
+  --26px: 1.625rem;
+  --30px: 1.875rem;
+  --32px: 2rem;
+  --33px: 2.063rem;
+  --40px: 2.5rem;
+  --50px: 3.125rem;
+  --56px: 3.5rem;
+  --60px: 3.75rem;
+  --66px: 4.125rem;
+  --70px: 4.375rem;
+  --84px: 5.25rem;
+  --100px: 6.25rem;
+  --120px: 7.5rem;
+  --140px: 8.75rem;
+  --150px: 9.375rem;
+  --160px: 10rem;
+  --170px: 10.625rem;
+  --200px: 12.5rem;
+  --240px: 15rem;
+  --290px: 18.125rem;
+  --300px: 18.75rem;
+  --340px: 21.25rem;
+  --360px: 22.5rem;
+  --400px: 25rem;
+  --440px: 27.5rem;
+  --550px: 34.375rem;
+  --640px: 40rem;
+  --720px: 45rem;
+  --740px: 46.25rem;
+  --1000px: 62.5rem;
+  --1200px: 75rem;
+}
+
 a {
   text-decoration: none;
 }
