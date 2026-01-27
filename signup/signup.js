@@ -50,7 +50,7 @@ const checkPassword = () => {
 };
 
 //이메일
-idInput[0].addEventListener("blur", () => {
+idInput[0].addEventListener("focusout", () => {
   if (idInput[0].value === "") {
     signupContainer[0].classList.add("error-border");
     signupContainer[0].classList.remove("accept-border");
@@ -71,7 +71,7 @@ idInput[0].addEventListener("blur", () => {
 });
 
 //닉네임
-idInput[1].addEventListener("blur", () => {
+idInput[1].addEventListener("focusout", () => {
   if (idInput[1].value === "") {
     signupContainer[1].classList.add("error-border");
     signupContainer[1].classList.remove("accept-border");
@@ -87,7 +87,7 @@ idInput[1].addEventListener("blur", () => {
 });
 
 //비밀번호
-passwordInput[0].addEventListener("blur", () => {
+passwordInput[0].addEventListener("focusout", () => {
   if (passwordInput[0].value === "") {
     signupContainer[2].classList.add("error-border");
     signupContainer[2].classList.remove("accept-border");
@@ -109,7 +109,7 @@ passwordInput[0].addEventListener("blur", () => {
 });
 
 //비밀번호 확인
-passwordInput[1].addEventListener("blur", () => {
+passwordInput[1].addEventListener("focusout", () => {
   checkPassword();
   signupButtonState();
 });

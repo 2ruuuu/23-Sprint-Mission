@@ -25,7 +25,7 @@ const loginButtonState = () => {
 };
 
 //아이디 에러 로직
-idInput.addEventListener("blur", () => {
+idInput.addEventListener("focusout", () => {
   if (idInput.value === "") {
     idContainer.classList.add("error-border");
     idContainer.classList.remove("accept-border");
@@ -47,7 +47,7 @@ idInput.addEventListener("blur", () => {
 });
 
 //패스워드 에러 로직
-passwordInput.addEventListener("blur", () => {
+passwordInput.addEventListener("focusout", () => {
   if (passwordInput.value === "") {
     passwordContainer.classList.add("error-border");
     passwordContainer.classList.remove("accept-border");
