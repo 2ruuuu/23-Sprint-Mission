@@ -1,5 +1,4 @@
 import {Route, Routes} from "react-router-dom";
-import "./App.css";
 import ItemsPage from "./pages/ItemsPage";
 import AddItemPage from "./pages/addItemPage";
 
