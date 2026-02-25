@@ -1,0 +1,48 @@
+.navBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 24px;
+  border-bottom: 1px solid #dfdfdf;
+  height: 70px;
+  background-color: white;
+  z-index: 1000;
+}
+
+.navBarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.navBarLeftContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.navBarRightContainer {
+}
+
+.active button {
+  color: #3692ff;
+}
+
+@media (max-width: 1199px) {
+}
+
+@media (max-width: 767px) {
+}

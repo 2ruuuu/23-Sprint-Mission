@@ -1,0 +1,31 @@
+.container {
+  margin-top: 40px;
+}
+
+.listContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 24px;
+  row-gap: 40px;
+}
+
+@media (max-width: 1199px) {
+  .listContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .listContainer > div:nth-child(n + 7) {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .listContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .listContainer > div:nth-child(n + 5) {
+    display: none;
+  }
+}

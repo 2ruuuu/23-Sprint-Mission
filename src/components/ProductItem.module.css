@@ -1,0 +1,49 @@
+.container {
+  width: 282px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.container.small {
+  width: 221px;
+}
+.container img {
+  aspect-ratio: 1/1;
+  border-radius: 16px;
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--secondary-800);
+}
+
+.price {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--secondary-800);
+}
+
+.heartContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+}
+
+.heartCount {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--secondary-600);
+}
