@@ -1,11 +1,7 @@
-import styles from "./AllProduct.module.css";
-import ProductItem from "./ProductItem";
+import styles from './AllProduct.module.css';
+import ProductItem from './ProductItem';
 
-const AllProduct = ({products, isLoading}) => {
-  if (isLoading) {
-    return null;
-  }
-
+const AllProduct = ({ products }) => {
   return (
     <div className={styles.container}>
       <div className={styles.listContainer}>
