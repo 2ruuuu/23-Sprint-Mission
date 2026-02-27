@@ -1,0 +1,10 @@
+.button {
+  font-weight: 700;
+  font-size: 18px;
+  line-heigth: 26px;
+  color: var(--secondary-600);
+}
+
+.button:hover {
+  text-decoration: underline;
+}

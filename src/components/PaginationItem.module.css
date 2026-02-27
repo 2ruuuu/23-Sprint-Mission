@@ -1,0 +1,16 @@
+.button {
+  background-color: #ffffff;
+  border: 1px solid var(--coolGray-200);
+  border-radius: 50%;
+  color: var(--coolGray-500);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 26px;
+  width: 40px;
+  height: 40px;
+}
+
+.current {
+  background-color: #2f80ed;
+  color: var(--secondary-100);
+}
