@@ -1,29 +1,55 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import { defineConfig, globalIgnores } from 'eslint/config'
+import js from '@eslint/js';
+import globals from 'globals';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
 
-export default defineConfig([
-  globalIgnores(['dist']),
+export default [
+  { ignores: ['dist', 'node_modules'] },
   {
     files: ['**/*.{js,jsx}'],
-    extends: [
-      js.configs.recommended,
-      reactHooks.configs.flat.recommended,
-      reactRefresh.configs.vite,
-    ],
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.browser,
+        ...globals.es2021,
+        ...globals.node,
+      },
       parserOptions: {
-        ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
-        sourceType: 'module',
       },
     },
+    plugins: {
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+    },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      // 1. 리액트 권장 규칙
+      ...js.configs.recommended.rules,
+      ...reactHooks.configs.recommended.rules,
+
+      // 2. Vite 전용 규칙 (HMR 유지용)
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
+
+      // 3. 실무형 커스텀 규칙
+      'no-unused-vars': [
+        'warn',
+        {
+          varsIgnorePattern: '^[A-Z_]', // 대문자로 시작하는 변수(컴포넌트 등) 무시
+          argsIgnorePattern: '^_', // _로 시작하는 인자 무시
+        },
+      ],
+      'no-console': 'warn', // 배포 전 console.log 체크용
+
+      // 4. Prettier와 싸우지 않기 위한 설정
+      // 스타일 관련은 에러를 내지 않고 Prettier가 알아서 하게 둡니다.
+      indent: 'off',
+      quotes: 'off',
+      semi: 'off',
+      'comma-dangle': 'off',
     },
   },
-])
+];
