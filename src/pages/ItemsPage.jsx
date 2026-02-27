@@ -90,7 +90,10 @@ const ItemsPage = () => {
             <Link to="/additem">
               <Button isActive="true">상품 등록하기</Button>
             </Link>
-            <DropDown handleProductsSort={handleProductsSort} />
+            <DropDown handleProductsSort={handleProductsSort}>
+              <DropDown.Option value="recent">최신순</DropDown.Option>
+              <DropDown.Option value="favorite">좋아요순</DropDown.Option>
+            </DropDown>
           </div>
         </div>
         {!isLoading && <AllProduct products={products} />}

@@ -1,12 +1,17 @@
-import styles from "./DropDown.module.css";
+import styles from './DropDown.module.css';
 
-const DropDown = ({handleProductsSort}) => {
+const DropDown = ({ handleProductsSort, children }) => {
   return (
     <select className={styles.select} onChange={handleProductsSort}>
-      <option value="recent">최신순</option>
-      <option value="favorite">좋아요순</option>
+      {children}
     </select>
   );
 };
+
+const Option = ({ value, children }) => {
+  return <option value={value}>{children}</option>;
+};
+
+DropDown.Option = Option;
 
 export default DropDown;
