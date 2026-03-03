@@ -1,10 +1,15 @@
+import {NavLink, useLocation} from "react-router-dom";
 import styles from "./NavBar.module.css";
 import NavBarButton from "./NavBarButton";
 import logo from "../assets/logo.svg";
 import myPageLogo from "../assets/myPageLogo.svg";
-import {NavLink} from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
+
+  const marketActive =
+    location.pathname === "/items" || location.pathname === "/additem";
+
   return (
     <div className={styles.navBar}>
       <div className={styles.navBarContainer}>
@@ -21,7 +26,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               to="/items"
-              className={({isActive}) => (isActive ? styles.active : null)}
+              className={marketActive ? styles.active : null}
             >
               <NavBarButton>중고마켓</NavBarButton>
             </NavLink>

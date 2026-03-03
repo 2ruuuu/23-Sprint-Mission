@@ -1,11 +1,7 @@
-import styles from "./BestProduct.module.css";
-import ProductItem from "./ProductItem";
+import styles from './BestProduct.module.css';
+import ProductItem from './ProductItem';
 
-const BestProduct = ({bestProducts, isBestLoading}) => {
-  if (isBestLoading) {
-    return null;
-  }
-
+const BestProduct = ({ bestProducts }) => {
   return (
     <div className={styles.container}>
       <div className={styles.itemContainer}>

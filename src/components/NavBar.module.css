@@ -42,7 +42,8 @@
 }
 
 @media (max-width: 1199px) {
-}
-
-@media (max-width: 767px) {
+  .buttonContainer,
+  .navBarLeftContainer {
+    gap: 10px;
+  }
 }
