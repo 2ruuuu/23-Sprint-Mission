@@ -12,7 +12,7 @@ const ImageRegistration = ({
   return (
     <Container>
       <Label htmlFor="imageRegist">
-        <img src={plusIcon} alt="이미지 추가 아이콘" />
+        <img src={plusIcon} alt="" />
         <P>이미지 등록</P>
       </Label>
       <HiddenInput
