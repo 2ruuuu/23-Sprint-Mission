@@ -2,32 +2,34 @@ import styled from 'styled-components';
 import Tag from './Tag';
 
 const AddItemInput = ({
-  children,
-  height = 'short',
+  label,
+  isTag = false,
   placeholder,
   handleTagAdd,
-  tag,
+  tag = [], //기본값 설정
   handleTagDelete,
   name,
   value,
   onChange,
+  variant = 'input',
+  height = 'short',
 }) => {
-  const isLong = height === 'long';
-  const tagInput = children === '태그';
+  const isTextarea = variant === 'textarea';
 
   return (
     <InputContainer>
-      <Label>{children}</Label>
+      <Label>{label}</Label>
       <Input
         name={name}
-        as={isLong ? 'textarea' : 'input'}
+        as={isTextarea ? 'textarea' : 'input'}
         $height={height}
+        $isTextarea={isTextarea}
         placeholder={placeholder}
-        onKeyDown={tagInput ? handleTagAdd : null}
+        onKeyDown={isTag ? handleTagAdd : null}
         value={value}
         onChange={onChange}
       />
-      {tagInput ? (
+      {isTag && (
         <TagContainer>
           {tag.map((title) => (
             <Tag key={title} handleTagDelete={handleTagDelete} tag={tag}>
@@ -35,7 +37,7 @@ const AddItemInput = ({
             </Tag>
           ))}
         </TagContainer>
-      ) : null}
+      )}
     </InputContainer>
   );
 };
@@ -61,14 +63,23 @@ const Input = styled.input`
   border: none;
   color: var(--secondary-800);
   background-color: var(--coolGray-100);
-  height: ${({ $height }) => ($height === 'long' ? '282px' : '56px')};
   outline: none;
+
+  height: ${({ $height }) => ($height === 'long' ? '282px' : '56px')};
+
+  ${({ $isTextarea }) =>
+    $isTextarea &&
+    `
+    display: block;
+    resize: none;
+    line-height: 1.5;
+    vertical-align: top;
+  `}
 
   &::placeholder {
     color: var(--secondary-400);
   }
 `;
-
 const TagContainer = styled.div`
   display: flex;
   justify-content: flex-start;
