@@ -17,7 +17,6 @@ const ItemsPage = () => {
   const [isBestLoading, setIsBestLoading] = useState(false);
   const [productsSort, setProductsSort] = useState('recent');
   const [page, setPage] = useState(1);
-  // const [pageSize, setPageSize] = useState(10);
 
   const handleProductsSort = (e) => {
     setProductsSort(e.target.value);
@@ -26,12 +25,6 @@ const ItemsPage = () => {
   const handlePageClick = (page) => {
     setPage(page);
   };
-
-  //1199px, 767px 때 새로 데이터 받아오기
-  //하면될거 같은데 어떻게 하는지 잘 모르겠습니다.
-  // useEffect(() => {
-
-  // }, [])
 
   //베스트 상품
   useEffect(() => {

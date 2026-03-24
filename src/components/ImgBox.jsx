@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import deleteImg from '../assets/Delete.svg';
+import { BREAKPOINT } from '../util/breakpoint';
 
 const ImgBox = ({ preview, handleImageDelete }) => {
   if (!preview) {
@@ -27,7 +28,7 @@ const Button = styled.button`
   top: 12px;
   left: 248px;
 
-  @media (max-width: 1199px) {
+  @media (max-width: ${BREAKPOINT.DESKTOP}) {
     left: 134px;
   }
 `;
@@ -40,7 +41,7 @@ const Image = styled.img`
   object-position: center;
   border: 1px solid var(--coolGray-50);
 
-  @media (max-width: 1199px) {
+  @media (max-width: ${BREAKPOINT.DESKTOP}) {
     width: 168px;
     height: 168px;
   }

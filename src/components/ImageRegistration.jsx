@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import plusIcon from '../assets/plus.svg';
 import ImgBox from './ImgBox';
+import { BREAKPOINT } from '../util/breakpoint';
 
 const ImageRegistration = ({
   name,
@@ -34,7 +35,7 @@ const Container = styled.div`
   align-items: center;
   gap: 24px;
 
-  @media (max-width: 1199px) {
+  @media (max-width: ${BREAKPOINT.DESKTOP}) {
     gap: 10px;
   }
 `;
@@ -50,7 +51,7 @@ const Label = styled.label`
   border-radius: 12px;
   cursor: pointer;
 
-  @media (max-width: 1199px) {
+  @media (max-width: ${BREAKPOINT.DESKTOP}) {
     width: 168px;
     height: 168px;
   }

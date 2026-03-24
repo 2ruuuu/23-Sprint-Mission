@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar';
 import Button from '../components/Button';
 import ImageRegistration from '../components/ImageRegistration';
 import AddItemInput from '../components/AddItemInput';
+import { BREAKPOINT } from '../util/breakpoint';
 
 const AddItemPage = () => {
   const [file, setFile] = useState();
@@ -142,7 +143,7 @@ const Container = styled.form`
   padding-right: 24px;
   padding-left: 24px;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${BREAKPOINT.TABLET}) {
     min-width: 450px;
     padding-right: 14px;
     padding-left: 14px;
