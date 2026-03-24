@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Tag from './Tag';
 
 const AddItemInput = ({
+  className,
   label,
   isTag = false,
   placeholder,
@@ -17,7 +18,7 @@ const AddItemInput = ({
   const isTextarea = variant === 'textarea';
 
   return (
-    <InputContainer>
+    <InputContainer className={className}>
       <Label>{label}</Label>
       <Input
         name={name}
@@ -65,7 +66,8 @@ const Input = styled.input`
   background-color: var(--coolGray-100);
   outline: none;
 
-  height: ${({ $height }) => ($height === 'long' ? '282px' : '56px')};
+  height: ${({ $height }) =>
+    $height === 'long' ? '282px' : $height === 'medium' ? '104px' : '56px'};
 
   ${({ $isTextarea }) =>
     $isTextarea &&

@@ -1,16 +1,22 @@
-import styles from "./ProductItem.module.css";
-import placeholder from "../assets/productItemPlaceHolder.svg";
-import heart from "../assets/heart.svg";
+import styles from './ProductItem.module.css';
+import placeholder from '../assets/productItemPlaceHolder.svg';
+import heart from '../assets/heart.svg';
+import { useNavigate } from 'react-router-dom';
 
-const ProductItem = ({isSmall, product}) => {
+const ProductItem = ({ isSmall, product }) => {
+  const navigate = useNavigate();
+
   if (!product) {
     return null;
   }
 
-  const containerClass = `${styles.container} ${isSmall ? styles.small : ""}`;
+  const containerClass = `${styles.container} ${isSmall ? styles.small : ''}`;
 
   return (
-    <div className={containerClass}>
+    <button
+      className={containerClass}
+      onClick={() => navigate(`/items/${product.id}`)}
+    >
       <img src={product.images?.[0] || placeholder} alt="상품 이미지" />
       <div className={styles.itemContent}>
         <h3 className={styles.title}>{product.name}</h3>
@@ -20,7 +26,7 @@ const ProductItem = ({isSmall, product}) => {
           <span className={styles.heartCount}>{product.favoriteCount}</span>
         </div>
       </div>
-    </div>
+    </button>
   );
 };
 
