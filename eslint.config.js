@@ -42,7 +42,7 @@ export default [
           argsIgnorePattern: '^_', // _로 시작하는 인자 무시
         },
       ],
-      'no-console': 'warn', // 배포 전 console.log 체크용
+      'no-console': 'off', // 배포 전 console.log 체크용
 
       // 4. Prettier와 싸우지 않기 위한 설정
       // 스타일 관련은 에러를 내지 않고 Prettier가 알아서 하게 둡니다.

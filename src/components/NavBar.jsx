@@ -1,14 +1,14 @@
-import {NavLink, useLocation} from "react-router-dom";
-import styles from "./NavBar.module.css";
-import NavBarButton from "./NavBarButton";
-import logo from "../assets/logo.svg";
-import myPageLogo from "../assets/myPageLogo.svg";
+import { NavLink, useLocation } from 'react-router-dom';
+import styles from './NavBar.module.css';
+import NavBarButton from './NavBarButton';
+import logo from '../assets/logo.svg';
+import myPageLogo from '../assets/myPageLogo.svg';
 
 const Navbar = () => {
   const location = useLocation();
+  const MARKET_PATHS = ['/items', '/additem'];
 
-  const marketActive =
-    location.pathname === "/items" || location.pathname === "/additem";
+  const marketActive = MARKET_PATHS.includes(location.pathname);
 
   return (
     <div className={styles.navBar}>
@@ -18,9 +18,9 @@ const Navbar = () => {
           <div className={styles.buttonContainer}>
             <NavLink
               to="https://naver.com"
-              className={({isActive}) => (isActive ? styles.active : null)}
+              className={({ isActive }) => (isActive ? styles.active : null)}
             >
-              {" "}
+              {' '}
               {/* 자유게시판은 임시 Link */}
               <NavBarButton>자유게시판</NavBarButton>
             </NavLink>

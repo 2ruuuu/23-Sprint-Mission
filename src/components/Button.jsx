@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const Button = ({ children, type = 'button', isActive = false }) => {
+const Button = ({ children, type = 'button', isActive = false, onClick }) => {
   return (
-    <ButtonS type={type} $isActive={isActive}>
+    <ButtonS type={type} $isActive={isActive} onClick={onClick}>
       {children}
     </ButtonS>
   );
@@ -21,4 +21,9 @@ const ButtonS = styled.button`
   line-height: 26px;
   white-space: nowrap;
   flex-shrink: 0;
+
+  &:hover {
+    background-color: ${({ $isActive }) =>
+      $isActive ? 'var(--primary-200)' : ''};
+  }
 `;

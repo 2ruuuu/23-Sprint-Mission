@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar';
 import Button from '../components/Button';
 import ImageRegistration from '../components/ImageRegistration';
 import AddItemInput from '../components/AddItemInput';
+import { BREAKPOINT } from '../util/breakpoint';
 
 const AddItemPage = () => {
   const [file, setFile] = useState();
@@ -93,41 +94,40 @@ const AddItemPage = () => {
           </ErrorMessage>
         </ProductImageContainer>
         <AddItemInput
+          label="상품명"
           height="short"
           placeholder="상품명을 입력해주세요"
           name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-        >
-          상품명
-        </AddItemInput>
+        />
         <AddItemInput
+          label="상품 소개"
+          variant="textarea"
           height="long"
           placeholder="상품 소개를 입력해주세요"
           name="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-        >
-          상품 소개
-        </AddItemInput>
+        />
         <AddItemInput
+          label="판매가격"
           height="short"
           placeholder="판매 가격을 입력해주세요"
           name="price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
-        >
-          판매가격
-        </AddItemInput>
+        />
+
         <AddItemInput
+          label="태그"
+          isTag={true}
           height="short"
           placeholder="태그를 입력해주세요"
           handleTagAdd={handleTagAdd}
           tag={tag}
           handleTagDelete={handleTagDelete}
-        >
-          태그
-        </AddItemInput>
+        />
       </main>
     </Container>
   );
@@ -143,7 +143,7 @@ const Container = styled.form`
   padding-right: 24px;
   padding-left: 24px;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${BREAKPOINT.TABLET}) {
     min-width: 450px;
     padding-right: 14px;
     padding-left: 14px;
