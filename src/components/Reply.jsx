@@ -45,12 +45,13 @@ const Reply = ({ item, handleDelete, handlePatch }) => {
             <IconButton type="button" onClick={handleKebabButtonClick}>
               <KebabImg src={kebab} />
             </IconButton>
-            <CustomKebabMenu
-              id={item.id}
-              isOpen={isKebabButtonOpen}
-              handleDelete={handleDelete}
-              onStartEdit={handleStartEdit}
-            />
+            {isKebabButtonOpen && (
+              <CustomKebabMenu
+                id={item.id}
+                handleDelete={handleDelete}
+                onStartEdit={handleStartEdit}
+              />
+            )}
           </KebabWrapper>
         </Top>
       )}

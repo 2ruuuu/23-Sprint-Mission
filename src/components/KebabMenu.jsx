@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
-const KebabMenu = ({ className, isOpen, handleDelete, id, onStartEdit }) => {
-  if (!isOpen) {
-    return null;
-  }
-
+const KebabMenu = ({ className, handleDelete, id, onStartEdit }) => {
   return (
     <Container className={className}>
       <EditButton type="button" onClick={() => onStartEdit?.()}>
