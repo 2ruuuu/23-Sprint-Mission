@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import blinkIcon from '../assets/blink.svg';
 import googleIcon from '../assets/google.svg';
@@ -6,10 +6,11 @@ import kakaoIcon from '../assets/kakaologo.svg';
 import logoIcon from '../assets/loginLogo.svg';
 import nonBlinkIcon from '../assets/non-blink.svg';
 import styles from './LoginPage.module.css';
+import { EMAILVALID } from '../util/emailvalid';
 
-const emailPattern: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emailPattern: RegExp = EMAILVALID;
 
-const LoginPage: React.FC = () => {
+const LoginPage = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState<string>('');
@@ -55,18 +56,9 @@ const LoginPage: React.FC = () => {
     navigate('/items');
   };
 
-  const getContainerClass = (touched: boolean, error: string): string => {
-    return [
-      styles['login-container'],
-      touched && (error ? styles['error-border'] : styles['accept-border']),
-    ]
-      .filter(Boolean)
-      .join(' ');
-  };
-
   return (
-    <div className={styles.loginPage}>
-      <div className={styles.wrapper}>
+    <div className={styles['login-page']}>
+      <div className={styles['wrapper']}>
         <header className={styles['top-header']}>
           <img src={logoIcon} alt="판다마켓 로고" />
           <Link to="/">
@@ -80,7 +72,9 @@ const LoginPage: React.FC = () => {
               <label className={styles['label-input']} htmlFor="id">
                 이메일
               </label>
-              <div className={getContainerClass(emailTouched, emailError)}>
+              <div
+                className={`${styles['login-container']} ${emailTouched ? (emailError ? styles['error-border'] : styles['accept-border']) : ''}`}
+              >
                 <input
                   className={styles['id-input']}
                   type="email"
@@ -100,8 +94,7 @@ const LoginPage: React.FC = () => {
                 비밀번호
               </label>
               <div
-                id="password-container"
-                className={getContainerClass(passwordTouched, passwordError)}
+                className={`${styles['login-container']} ${passwordTouched ? (passwordError ? styles['error-border'] : styles['accept-border']) : ''}`}
               >
                 <input
                   className={styles['password-input']}
@@ -117,9 +110,6 @@ const LoginPage: React.FC = () => {
                   className={styles['password-blink']}
                   type="button"
                   onClick={() => setShowPassword((v) => !v)}
-                  aria-label={
-                    showPassword ? '비밀번호 숨기기' : '비밀번호 보기'
-                  }
                 >
                   <img src={showPassword ? blinkIcon : nonBlinkIcon} alt="" />
                 </button>
@@ -130,9 +120,7 @@ const LoginPage: React.FC = () => {
             <button
               type="submit"
               disabled={!canSubmit}
-              className={`${styles['login-button']} ${
-                canSubmit ? styles['login-accept-button'] : ''
-              }`}
+              className={`${styles['login-button']} ${canSubmit ? styles['login-accept-button'] : ''}`}
             >
               로그인
             </button>
@@ -141,24 +129,16 @@ const LoginPage: React.FC = () => {
           <div className={styles['easy-login-container']}>
             <div>간편 로그인하기</div>
             <div className={styles['icon-container']}>
-              <a
-                href="https://www.google.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="https://www.google.com/" target="_blank">
                 <img
-                  className={styles.icon}
+                  className={styles['icon']}
                   src={googleIcon}
                   alt="구글 아이콘"
                 />
               </a>
-              <a
-                href="https://www.kakaocorp.com/page/"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="https://www.kakaocorp.com/page/" target="_blank">
                 <img
-                  className={styles.icon}
+                  className={styles['icon']}
                   src={kakaoIcon}
                   alt="카카오 아이콘"
                 />
